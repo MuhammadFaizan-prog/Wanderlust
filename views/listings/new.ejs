@@ -1,0 +1,72 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <br><br>
+    <h3>Add new listing</h3>
+    <!--? needs-validation is bootstrap class  -->
+    <!--? which have some functionality in script.js  -->
+    
+    <!--? novalidate disable default browser feedback tooltips  -->
+    <!--? Changing form into multipart/form-data used for uploading files  -->
+    <!--? For it we use multer which is used for multipart/form-data  -->
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+        <!--? Where listing is an object and its key is title  -->
+        <input type="text" name="listing[title]" id="" placeholder="Add a catchy title" class="form-control" required>
+        <!--? Valid-feedback=jb shi chiz enter kri jae to jo msg show hota h  -->
+        <div class="valid-feedback">
+            Title looks good
+        </div>
+        <!--? Valid-feedback=jb glt ya empty chiz enter kri jae to jo msg show hota h  -->
+        <div class="invalid-feedback">
+            Please enter a  Title
+        </div>
+    </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" id="" cols="30" rows="10" placeholder="Enter description" class="form-control" required></textarea>
+        <div class="invalid-feedback">
+            Please enter a short description
+        </div>
+    </div>
+
+        <div class="mb-3">
+         <label for="image" class="form-label">Upload Image</label>
+        <input type="file" name="listing[image]" id="" placeholder="Enter image" class="form-control"  required>
+        </div>
+        
+        <div class="row">
+  <div class="mb-3 col-md-4">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" name="listing[price]" id="" placeholder="1,200 $" class="form-control" required>
+    <div class="invalid-feedback">
+            Please enter a valid price
+        </div>
+  </div>
+  <div class="mb-3 col-md-8">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" name="listing[country]" id="" placeholder="Pakistan" class="form-control" required>
+    <div class="invalid-feedback">
+      Please enter a valid country
+        </div>
+  </div>
+</div>        
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" id="" placeholder="Lahore" class="form-control" required>
+            <div class="invalid-feedback">
+            Please enter a valid location
+        </div>
+        </div>  
+    
+        
+        <button class="btn btn-dark add-btn mt-4">Add </button>
+        <br><br>
+
+    </form>
+    </div>
+    </div>
+</body>
